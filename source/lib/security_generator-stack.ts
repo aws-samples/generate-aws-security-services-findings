@@ -45,12 +45,11 @@ export class SecurityFindingGeneratorStack extends Stack {
 
     const security_service_user_data = new CfnParameter(this, 'security_service_user_data', {
       type: 'String',
-      description: 'This will determine the EC2 user data script to generate real findings. Allowed values are: inspector, guardduty, macie, or consolidated',
+      description: 'This will determine the EC2 user data script to generate real findings. Allowed values are: inspector or guardduty.',
       default: 'guardduty',
       allowedValues: [
         'inspector',
-        'guardduty',
-        'macie',
+        'guardduty'
       ]
     });
 
@@ -58,7 +57,7 @@ export class SecurityFindingGeneratorStack extends Stack {
     const security_demo_parameter = new ssm.StringParameter(this, 'security_demo_parameter', {
       parameterName: '/security-demo-user-data',
       stringValue: security_service_user_data.valueAsString,
-      description: 'This will determine the EC2 user data script to generate real findings. Allowed values are: inspector, guardduty, macie, or consolidated.',
+      description: 'This will determine the EC2 user data script to generate real findings. Allowed values are: inspector or guardduty.',
       tier: ssm.ParameterTier.STANDARD,
       allowedPattern: '.*',
     });
