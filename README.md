@@ -98,7 +98,7 @@ To build this app, you need to be in the project root folder. Then run the follo
     $ cdk bootstrap aws://<INSERT_AWS_ACCOUNT>/<INSERT_REGION>
     <build S3 bucket to store files to perform deployment>
 
-    $ cdk deploy SecurityFindingGeneratorStack –parameters securityserviceuserdata=inspector
+    $ cdk deploy SecurityFindingGeneratorStack –-parameters securityserviceuserdata=inspector
     <deploys the cdk project into the authenticated AWS account>
     Note: allowed values for securityserviceuserdata are: [guardduty, inspector]
 
